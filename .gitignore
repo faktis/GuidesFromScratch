@@ -1,0 +1,19 @@
+# Build output
+bin/
+obj/
+release/
+publish/
+
+# User-specific files
+.vs/
+*.user
+*.suo
+
+# Rider/JetBrains
+.idea/
+
+# Mac
+.DS_Store
+
+# System
+Thumbs.db
