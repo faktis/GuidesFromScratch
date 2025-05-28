@@ -6,15 +6,13 @@ on:
     - main
 
 permissions:
-  contents: write-all
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v3
-      with:
-        persist-credentials: false
     - name: Checkout repository
       uses: actions/checkout@v4
 
@@ -22,13 +20,15 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '9.0'
+
     - name: Restore packages
+      run: dotnet restore
 
     - name: Publish Blazor WASM app
       run: dotnet publish -c Release -o release
 
     - name: Copy index.html to 404.html (SPA fallback)
-      run: cp release/wwwroot/index.html wwwroot/404.html
+      run: cp release/wwwroot/index.html release/wwwroot/404.html
 
     - name: Commit wwwroot to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
