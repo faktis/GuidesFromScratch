@@ -1,37 +1,37 @@
-name: Deploy to GitHub Pages
+# name: Deploy to GitHub Pages
 
-on:
-  push:
-    branches:
-    - main
+# on:
+#   push:
+#     branches:
+#     - main
 
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+#     steps:
+#     - name: Checkout repository
+#       uses: actions/checkout@v4
 
-    - name: Setup .NET 9
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '9.0'
+#     - name: Setup .NET 9
+#       uses: actions/setup-dotnet@v4
+#       with:
+#         dotnet-version: '9.0'
 
-    - name: Restore packages
-      run: dotnet restore
+#     - name: Restore packages
+#       run: dotnet restore
 
-    - name: Publish Blazor WASM app
-      run: dotnet publish ./GuidesFromScratch.csproj -c Release -o release
+#     - name: Publish Blazor WASM app
+#       run: dotnet publish ./GuidesFromScratch.csproj -c Release -o release
 
-    - name: Copy index.html to 404.html (SPA fallback)
-      run: cp release/wwwroot/index.html release/wwwroot/404.html
+#     - name: Copy index.html to 404.html (SPA fallback)
+#       run: cp release/wwwroot/index.html release/wwwroot/404.html
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: release/wwwroot
+#     - name: Deploy to GitHub Pages
+#       uses: peaceiris/actions-gh-pages@v3
+#       with:
+#         github_token: ${{ secrets.GITHUB_TOKEN }}
+#         publish_dir: release/wwwroot
