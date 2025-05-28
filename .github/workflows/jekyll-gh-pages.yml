@@ -24,13 +24,11 @@ jobs:
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Install Jekyll & Bundler
-        run: |
-          sudo gem install bundler jekyll
-          bundle install
+      - name: Install Jekyll
+        run: sudo gem install jekyll
 
       - name: Build Jekyll site
-        run: bundle exec jekyll build --source ./ --destination ./_site
+        run: jekyll build --source ./ --destination ./_site
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
