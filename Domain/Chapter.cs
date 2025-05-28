@@ -1,4 +1,4 @@
-﻿namespace GuidesFromScratch.Models;
+﻿namespace GuidesFromScratch.Domain;
 
 public class Chapter
 {
