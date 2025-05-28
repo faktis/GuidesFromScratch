@@ -19,7 +19,7 @@ jobs:
       - name: Setup .NET
         uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: '10.x'
+          dotnet-version: '9,*'
 
       - name: Publish
         run: dotnet publish -c Release -o release
