@@ -1,4 +1,5 @@
-﻿@page "/chapter2"
+﻿@page "/GamesFromScratch/chapter2"
+@using GuidesFromScratch.Components
 @using GuidesFromScratch.Domain
 
 <h3>📚 Chapter 2: App Architecture & Core Concepts</h3>
@@ -19,13 +20,13 @@ public class TextBlock
 "></TextBlock></pre>
 
 <p><strong>Chapter.cs</strong></p>
-<pre><Text:Block Value="
+<pre><TextBlock Value="
 public class Chapter
 {
     public Guid Id { get; set; } = Guid.NewGuid();
     public string Title { get; set; } = string.Empty;
     public List<TextBlock> Blocks { get; set; } = new();
-}"</Text:Block></pre>
+}"></TextBlock></pre>
 
 <h4>🧱 App Structure</h4>
 <pre><TextBlock Value="Pages/
