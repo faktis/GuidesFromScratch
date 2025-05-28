@@ -22,7 +22,7 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Publish Blazor WASM app
-        run: dotnet publish -c Release -o release
+        run: dotnet publish -c Release release
 
       - name: Copy index.html to 404.html (SPA fallback)
         run: cp release/wwwroot/index.html release/wwwroot/404.html
