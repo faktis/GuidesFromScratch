@@ -1,0 +1,46 @@
+﻿@page "/chapter2"
+@using GuidesFromScratch.Domain
+
+<h3>📚 Chapter 2: App Architecture & Core Concepts</h3>
+
+<p>This guide covers the core structure of the app and how chapters are composed of text blocks.</p>
+
+<h4>📄 Models</h4>
+
+<p><strong>TextBlock.cs</strong></p>
+<pre><TextBlock> Value='"
+public class TextBlock
+{
+    public string Title { get; set; } = string.Empty;
+    public string Body { get; set; } = string.Empty;
+    public string? ImageUrl { get; set; }
+    public string? LinkUrl { get; set; }
+}
+""")</TextBlock></pre>
+
+<p><strong>Chapter.cs</strong></p>
+<pre><Text:Block Value="
+public class Chapter
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public string Title { get; set; } = string.Empty;
+    public List<TextBlock> Blocks { get; set; } = new();
+}"</Text:Block></pre>
+
+<h4>🧱 App Structure</h4>
+<pre><TextBlock Value=">Pages/
+├── Chapter2_Tutorial.razor
+├── ChapterEditor.razor
+Components/
+├── TextBlockCard.razor
+├── TextBlockEditor.razor
+Services/
+├── ChapterStorageService.cs
+Models/
+├── Chapter.cs
+├── TextBlock.cs"></TextBlock></pre>
+
+<h4>🔐 Data lives in localStorage</h4>
+<p>Each chapter is saved as a JSON string. No backend required!</p>
+
+<p>⬇ Ready to build components? Continue to <strong><a href="/chapter3">Chapter 3: Components Overview</a></strong>.</p>
