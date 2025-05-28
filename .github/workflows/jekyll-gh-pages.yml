@@ -21,17 +21,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2' # use the latest compatible version with Jekyll
-          bundler-cache: true
-
       - name: Setup GitHub Pages
         uses: actions/configure-pages@v5
 
-      - name: Install dependencies
+      - name: Install Jekyll & Bundler
         run: |
+          sudo gem install bundler jekyll
           bundle install
 
       - name: Build Jekyll site
