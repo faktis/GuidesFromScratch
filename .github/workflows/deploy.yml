@@ -22,13 +22,13 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Publish Blazor WASM app
-        run: dotnet publish -c Release -o release
+        run: dotnet publish -c Release
 
       - name: Copy index.html to 404.html (SPA fallback)
-        run: cp release/wwwroot/index.html release/wwwroot/404.html
+        run: cp wwwroot/index.html wwwroot/404.html
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: release/wwwroot
+          publish_dir: wwwroot
